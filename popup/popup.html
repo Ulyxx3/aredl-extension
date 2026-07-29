@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AREDL Stats Sync</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="header">
+    <h2>AREDL Stats Sync</h2>
+  </div>
+
+  <div class="content">
+    <div class="field-group">
+      <label for="sheetUrl">URL du Google Spreadsheet :</label>
+      <input type="text" id="sheetUrl" placeholder="https://docs.google.com/spreadsheets/d/.../edit" />
+    </div>
+
+    <button id="syncBtn" class="btn primary">Synchroniser</button>
+
+    <div id="status" class="status-msg"></div>
+
+    <div class="stats-info" id="statsInfo" style="display: none;">
+      <div class="stat-item">
+        <span class="label">Niveaux synchro :</span>
+        <span class="value" id="levelsCount">0</span>
+      </div>
+      <div class="stat-item">
+        <span class="label">Dernière synchro :</span>
+        <span class="value" id="lastSyncTime">Jamais</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

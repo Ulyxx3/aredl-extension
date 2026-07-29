@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "AREDL - Personal Stats Sync",
+  "version": "1.0.0",
+  "description": "Affiche vos niveaux complétés et vos statistiques personnelles de Google Sheets directement sur AREDL.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://docs.google.com/*",
+    "https://aredl.net/*"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://aredl.net/*"
+      ],
+      "js": [
+        "scripts/content.js"
+      ],
+      "css": [
+        "scripts/content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
