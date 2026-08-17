@@ -57,10 +57,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         lastSync: now
       });
 
-      // Transmettre le message au tab actif s'il est sur aredl.net
-      const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-      if (tab && tab.url && tab.url.includes("aredl.net")) {
-        chrome.tabs.sendMessage(tab.id, { action: "RELOAD_STATS" }).catch(() => {});
+      // Transmettre le message aux tabs actifs s'ils sont sur aredl.net ou pointercrate.com
+      const tabs = await chrome.tabs.query({});
+      for (const t of tabs) {
+        if (t.url && (t.url.includes("aredl.net") || t.url.includes("pointercrate.com"))) {
+          chrome.tabs.sendMessage(t.id, { action: "RELOAD_STATS" }).catch(() => {});
+        }
       }
 
       displayStats(count, now);

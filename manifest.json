@@ -8,7 +8,9 @@
   ],
   "host_permissions": [
     "https://docs.google.com/*",
-    "https://aredl.net/*"
+    "https://aredl.net/*",
+    "https://pointercrate.com/*",
+    "https://cf-worker.finite-weeb.xyz/*"
   ],
   "action": {
     "default_popup": "popup/popup.html"
@@ -23,6 +25,18 @@
       ],
       "css": [
         "scripts/content.css"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://pointercrate.com/*"
+      ],
+      "js": [
+        "scripts/pointercrate.js"
+      ],
+      "css": [
+        "scripts/pointercrate.css"
       ],
       "run_at": "document_idle"
     }
